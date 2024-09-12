@@ -1,6 +1,6 @@
 public class Personagem{
     String nome;
-    int energia;
+    int energia = 10;
     int fome = 0;
     int sono = 0;
 
@@ -20,10 +20,22 @@ public class Personagem{
     }
 
     void comer(){
-        System.out.println(nome + " comendo");
+        if(fome >= 1){
+            System.out.println(nome + "comendo");
+            energia = Math.min(energia + 1, 10);
+        }
+        else {
+            System.out.println(nome + "sem fome");
+        }
+
     }
 
     void dormir(){
         System.out.printf(nome + " dormindo");
+        if(sono >= 1){
+        energia = energia == 10 ? energia : energia + 1;
+        sono--;
+    } else {
+        System.out.println(nome + " sem sono");
     }
 }
